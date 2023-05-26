@@ -1,0 +1,53 @@
+post:
+  tags:
+    - Авторизация
+  summary: Воход
+  description: Воход в приложение
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          required:
+            - name
+            - email
+            - password
+          properties:
+            name:
+              description: Логин
+              type: string
+            email:
+              description: Email
+              type: string
+            password:
+              description: Пароль
+              type: string
+          type: object
+  responses:
+    '200':
+      description: 'Возвращение токена авторизации'
+      content:
+        application/json:
+          schema:
+            required:
+              - access_token
+              - token_type
+              - expires_in
+            properties:
+              access_token:
+                description: Токен доступа
+                type: string
+                example:
+                  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDEvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2ODUwMDc0NzIsImV4cCI6MTY4NTAxMTA3MiwibmJmIjoxNjg1MDA3NDcyLCJqdGkiOiJ0RUFIcjFoM2ZRbTJnMGI3Iiwic3ViIjoiMiIsInBydiI6IjEzZThkMDI4YjM5MWYzYjdiNjNmMjE5MzNkYmFkNDU4ZmYyMTA3MmUifQ.vL-t9-iajzc5lhTwtwMPTdLx673vhyDKP7M0y28nOrA"
+              token_type:
+                description: Тип токев
+                example:
+                  "bearer"
+                type: string
+              expires_in:
+                description: Время жизни
+                type: integer
+                example:
+                  3600
+
+            type: object

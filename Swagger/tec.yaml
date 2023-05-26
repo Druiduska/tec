@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: Test work
+  description: Test fot TEC.
+  version: 1.0.0
+servers:
+  - url: 'https://tec.test'
+paths:
+  ###  Авторизация ###
+
+  # Регистрация
+  /api/auth/registration:
+    $ref: "./api/auth/registration.yaml"
+  # Воход
+  /api/auth/login:
+    $ref: "./api/auth/login.yaml"
+  # Выход
+  /api/auth/logout:
+    $ref: "./api/auth/logout.yaml"
+  # Удаление
+  /api/auth/delete:
+    $ref: "./api/auth/delete.yaml"
+  # Информация о пользователе
+  /api/auth/me:
+    $ref: "./api/auth/me.yaml"
+  # Обновить токен
+  /api/auth/refresh:
+    $ref: "./api/auth/refresh.yaml"
+
+  ### Сотрудники ###
+  /api/staff:
+    $ref: './api/staff/staff.yaml'
+  /api/staff/reports/working-time:
+    $ref: './api/staff/reports/working-time.yaml'
+  # Загрузка из CSV
+  /api/staff/load-csv:
+    $ref: "./api/staff/load-csv.yaml"

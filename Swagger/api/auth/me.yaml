@@ -1,0 +1,49 @@
+post:
+  tags:
+    - Авторизация
+  summary: Информация
+  description: Возвращение информации о пользователе
+  requestBody:
+    required: false
+  responses:
+    '200':
+      description: 'Возвращение информации о пользователе'
+      content:
+        application/json:
+          schema:
+            required:
+              - id
+              - name
+              - email
+              - created_at
+              - updated_at
+            properties:
+              id:
+                description: id пользователя
+                type: integer
+                example:
+                  2
+              name:
+                description: Логин пользователя
+                type: string
+                example:
+                  "ioan"
+              email:
+                description: e-mail
+                type: string
+                example:
+                  "ioan@test.mail"
+              created_at:
+                description: Время создания
+                type: string
+                example:
+                  "2023-05-24T07:09:19.000000Z"
+              updated_at:
+                description: Время последнего изменения
+                type: string
+                example:
+                  "2023-05-24T07:09:19.000000Z"
+
+            type: object
+  security:
+    - token: [ ]

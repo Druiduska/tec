@@ -1,0 +1,24 @@
+delete:
+  tags:
+    - Авторизация
+  summary: Удаление
+  description: Удаление пользователя
+  requestBody:
+    required: false
+  responses:
+    '200':
+      description: 'Сообщение о благополучном удвлении'
+      content:
+        application/json:
+          schema:
+            required:
+              - message
+            properties:
+              message:
+                description: Текст сообщения
+                type: string
+                example:
+                  "Successfully delete"
+            type: object
+  security:
+    - token: [ ]

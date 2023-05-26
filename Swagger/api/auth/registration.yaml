@@ -1,0 +1,47 @@
+post:
+  tags:
+    - Авторизация
+  summary: Регистрация
+  description: Регистрация нового пользователя
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          required:
+            - name
+            - email
+            - password
+          properties:
+            name:
+              description: Логин
+              type: string
+            email:
+              description: Email
+              type: string
+            password:
+              description: Пароль
+              type: string
+          type: object
+  responses:
+    '200':
+      description: 'Сообщение о благополучной регистрации'
+      content:
+        application/json:
+          schema:
+            required:
+              - message
+              - id
+            properties:
+              message:
+                description: Текст сообщения
+                type: string
+                example:
+                  "Successfully registration!"
+              id:
+                description: id нового пользователя
+                type: integer
+                example:
+                  100500
+
+            type: object

@@ -1,0 +1,95 @@
+get:
+  tags:
+    - Сотрудники
+  summary: Рабочее время по неделям
+  description: Рабочее время по неделям
+  parameters:
+    - name: user_id
+      in: query
+      description: id сотрудника
+      required: true
+      schema:
+        type: integer
+        example: 2
+      example: 2
+    - name: date
+      in: query
+      description: Дата отчета
+      required: true
+      schema:
+        type: string
+        example: '2023-05-25'
+      example: '2023-05-25'
+    - name: count
+      in: query
+      description: Количество недель
+      required: true
+      schema:
+        type: integer
+        example: 5
+      example: 5
+
+  responses:
+    200:
+      description: Рабочее время по неделям
+      content:
+        application/json:
+          schema:
+            required:
+              - success
+              - staff_list
+            properties:
+              success:
+                description: Успешно
+                type: boolean
+                example:
+                  true
+              staff_list:
+                description: Список сотрудников
+                type: array
+                items:
+                  type: object
+                  properties:
+                    begin:
+                      description: Дата начала недели
+                      type: string
+                      example: "2023-05-01"
+                    end:
+                      description: Дата окончания недели
+                      type: string
+                      example: "2023-05-07"
+                    family:
+                      description: Фамилия
+                      type: string
+                      example: Иванов
+                    name:
+                      description: Имя
+                      type: string
+                      example: Иван
+                    patronymic:
+                      description: Отчество
+                      type: string
+                      example: Иванович
+                    working_time:
+                      description: Отработанное время
+                      type: string
+                      example: "10:38:14"
+
+            type: object
+    422:
+      description: Ошибка в параметрах запроса
+      content:
+        application/json:
+          schema:
+            required:
+              - errors
+            properties:
+              errors:
+                description: Ошибка
+                type: object
+                example:
+                  {
+                    "user_id": [
+                      "The Auth user id field is required."
+                    ]
+                  }

@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Авторизация
+  summary: Выход
+  description: Выход пользователя
+  requestBody:
+    required: false
+  responses:
+    '200':
+      description: 'Сообщение о благополучном выходе'
+      content:
+        application/json:
+          schema:
+            required:
+              - message
+            properties:
+              message:
+                description: Текст сообщения
+                type: string
+                example:
+                  "Successfully logged out"
+            type: object
+  security:
+    - token: [ ]

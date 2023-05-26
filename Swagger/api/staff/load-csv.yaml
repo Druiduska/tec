@@ -1,0 +1,69 @@
+post:
+  tags:
+    - Сотрудники
+  summary: Загрузка из CSV
+  description: Загрузка из файла CSV
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          required:
+            - file
+          properties:
+            file:
+              description: Файл загрузки
+              type: file
+          type: object
+  responses:
+    200:
+      description: 'Возвращение токена авторизации'
+      content:
+        application/json:
+          schema:
+            required:
+              - success
+              - not_loaded
+            properties:
+              success:
+                description: Успешно
+                type: boolean
+                example:
+                  true
+              not_loaded:
+                description: Не загруженные записи
+                type: array
+                example:
+                  -
+                    - "Иванов"
+                    - "Иван"
+                    - "Иванович"
+                    - "ioan@test.mail"
+                    - "ioan"
+                    - "123"
+
+            type: object
+    400:
+      description: 'Возвращение токена авторизации'
+      content:
+        application/json:
+          schema:
+            required:
+              - success
+              - error
+            properties:
+              access_token:
+                description: Не успешно
+                type: boolean
+                example:
+                  false
+              error:
+                description: Сообщение об ошибке
+                type: string
+                example:
+                  'invalid_data_format'
+    302:
+      description: 'Если не авторизован перенаправение на страницу 404'
+
+  security:
+    - token: [ ]

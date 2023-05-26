@@ -1,0 +1,52 @@
+get:
+  tags:
+    - Сотрудники
+  summary: Список сотрудников
+  description: Список сотрудников
+  responses:
+    200:
+      description: Список сотрудников
+      content:
+        application/json:
+          schema:
+            required:
+              - success
+              - staff_list
+            properties:
+              access_token:
+                description: Успешно
+                type: boolean
+                example:
+                  true
+              staff_list:
+                description: Список сотрудников
+                type: array
+                items:
+                  type: object
+                  properties:
+                    user_id:
+                      description: id сотрудника
+                      type: string
+                      example: 2
+                    family:
+                      description: Фамилия
+                      type: string
+                      example: Иванов
+                    name:
+                      description: Имя
+                      type: string
+                      example: Иван
+                    patronymic:
+                      description: Отчество
+                      type: string
+                      example: Иванович
+                    login:
+                      description: Логин
+                      type: string
+                      example: ioan
+                    email:
+                      description: e-mail
+                      type: string
+                      example: ioan@test.mail
+
+            type: object
