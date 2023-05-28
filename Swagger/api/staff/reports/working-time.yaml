@@ -36,14 +36,8 @@ get:
         application/json:
           schema:
             required:
-              - success
               - staff_list
             properties:
-              success:
-                description: Успешно
-                type: boolean
-                example:
-                  true
               staff_list:
                 description: Список сотрудников
                 type: array
