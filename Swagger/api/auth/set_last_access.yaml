@@ -1,0 +1,43 @@
+post:
+  tags:
+    - Авторизация
+  summary: Последняя активность пользователя
+  description: Последняя активность пользователя
+  parameters:
+    - name: user_id
+      in: path
+      description: id сотрудника
+      required: true
+      schema:
+        type: integer
+        example: 2
+      example: 2
+  responses:
+    '200':
+      description: 'Последняя активность пользователя'
+      content:
+        application/json:
+          schema:
+            required:
+              - message
+            properties:
+              message:
+                description: Текст сообщения
+                type: string
+                example:
+                  "The last user access is set"
+
+            type: object
+    422:
+      description: Ошибка в параметрах запроса
+      content:
+        application/json:
+          schema:
+            required:
+              - error
+            properties:
+              error:
+                description: Ошибка
+                type: string
+                example:
+                  There is no such user

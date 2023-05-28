@@ -22,6 +22,6 @@ class WorkingTimeController extends Controller
     public function byWeek(WorkingTimeRequest $request)
     {
         $workingTimeList = $this->workingTimeAction->byWeek($request->user_id, $request->date, $request->count);
-        return response()->json(['success' => true, 'working_time_list' => $workingTimeList]);
+        return response()->json(['working_time_list' => $workingTimeList]);
     }
 }

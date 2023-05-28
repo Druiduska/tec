@@ -3,6 +3,7 @@
 namespace App\Actions\Auth;
 
 use App\Models\Auth\Access;
+use App\Models\Auth\User;
 use Illuminate\Support\Carbon;
 
 class AccessAction
@@ -18,6 +19,8 @@ class AccessAction
     public function __construct(protected int $id)
     {
         $this->access=new Access();
+        if (User::whereId($this->id)->exists() === false)
+            throw new \Error('There is no such user');
     }
 
     /**

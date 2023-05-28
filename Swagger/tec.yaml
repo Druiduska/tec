@@ -26,7 +26,10 @@ paths:
   # Обновить токен
   /api/auth/refresh:
     $ref: "./api/auth/refresh.yaml"
-
+  /api/auth/set-login/{id}:
+    $ref: "./api/auth/set_login.yaml"
+  /api/auth/set-last-access/{id}:
+    $ref: "./api/auth/set_last_access.yaml"
   ### Сотрудники ###
   /api/staff:
     $ref: './api/staff/staff.yaml'

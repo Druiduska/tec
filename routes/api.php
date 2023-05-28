@@ -23,6 +23,9 @@ Route::group([
     Route::post('refresh', ['\App\Http\Controllers\Auth\AuthController', 'refresh']);
     Route::post('me', ['\App\Http\Controllers\Auth\AuthController', 'me']);
     Route::delete('delete', ['\App\Http\Controllers\Auth\AuthController', 'delete']);
+
+    Route::post('set-login/{id}', ['\App\Http\Controllers\Auth\AccessController', 'setLogin']);
+    Route::post('set-last-access/{id}', ['\App\Http\Controllers\Auth\AccessController', 'setAccess']);
 });
 
 Route::group([

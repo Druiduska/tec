@@ -22,14 +22,8 @@ post:
         application/json:
           schema:
             required:
-              - success
               - not_loaded
             properties:
-              success:
-                description: Успешно
-                type: boolean
-                example:
-                  true
               not_loaded:
                 description: Не загруженные записи
                 type: array
