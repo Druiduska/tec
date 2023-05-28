@@ -28,3 +28,16 @@ post:
                   "The logged-in user is set"
 
             type: object
+    422:
+      description: Ошибка в параметрах запроса
+      content:
+        application/json:
+          schema:
+            required:
+              - error
+            properties:
+              error:
+                description: Ошибка
+                type: string
+                example:
+                  There is no such user

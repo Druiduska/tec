@@ -32,7 +32,12 @@ class AccessController extends Controller
      */
     public function setLogin($id)
     {
-        (new AccessAction($id))->onLogin();
+        try {
+            (new AccessAction($id))->onLogin();
+        } catch (\Error $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+
         return response()->json(['message' => 'The logged-in user is set', 'code' => 0]);
     }
 
@@ -44,7 +49,12 @@ class AccessController extends Controller
      */
     public function setAccess($id)
     {
-        (new AccessAction($id))->onAccess();
+        try {
+            (new AccessAction($id))->onAccess();
+        } catch (\Error $e) {
+            return response()->json(['error' => $e->getMessage()], 422);
+        }
+
         return response()->json(['message' => 'The last user access is set', 'code' => 0]);
     }
 }
